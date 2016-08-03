@@ -491,8 +491,8 @@ function processForm(vars) {
     vars = vars + generateVars();
 
     // Add window dimensions
-    vars = vars + "&windowWidth=" + window.innerWidth;
-    vars = vars + "&windowHeight=" + window.innerHeight;
+    vars = vars + "&windowWidth=" + (window.innerWidth===undefined?document.documentElement.clientWidth:window.innerWidth);
+    vars = vars + "&windowHeight=" + (window.innerHeight===undefined?document.documentElement.clientHeight:window.innerHeight);
 
     // Return HTML from AJAX to div (when complete)
     xmlhttp.onreadystatechange = function stateChanged() {
@@ -594,8 +594,8 @@ function centerPopUp(windowID, popUpWidth, popUpHeight) {
     var popUpLeft;
     var popUpTop;
 
-    popUpLeft = (window.innerWidth - popUpWidth) / 2;
-    popUpTop = (window.innerHeight - popUpHeight) / 2;
+    popUpLeft = ((window.innerWidth===undefined?document.documentElement.clientWidth:window.innerWidth) - popUpWidth) / 2;
+    popUpTop = ((window.innerHeight===undefined?document.documentElement.clientHeight:window.innerHeight) - popUpHeight) / 2;
 
     var theWin = document.getElementById(windowID);
 
@@ -644,7 +644,7 @@ function setFileWindowSize(divID, height, dedn) {
         dedn = globalEditorDefaultSize;
 
     if (height == 0) {
-        var screenHeight = window.innerHeight;
+        var screenHeight = (window.innerHeight===undefined?document.documentElement.clientHeight:window.innerHeight);
         var height = screenHeight - dedn;
     }
 
@@ -1047,7 +1047,7 @@ function positionDivToCursor(e, divId) {
 
     var mousex = e.clientX;
     var mousey = e.clientY;
-    var innerHeight = window.innerHeight;
+    var innerHeight = (window.innerHeight===undefined?document.documentElement.clientHeight:window.innerHeight);
 
     // Adjust Y for IE
     //if (globalBrowser != "ie")
