@@ -2,7 +2,7 @@
 
 # Open README file for descriptions and help.
 
-$ftpHost = "";
+$ftpHost = $_SERVER['SERVER_NAME'];
 $ftpPort = "21";
 $ftpMode = "1";
 $ftpSSL  = "0";
@@ -13,7 +13,7 @@ $sessionName = "";
 $dateFormatUsa = 0;
 $lockOutTime = 5;
 $versionCheck = 1;
-$showAdvOption = 1;
+$showAdvOption = 0;
 $showLockSess = 1;
 $showHostInfo = 1;
 $showAddons = 1;
