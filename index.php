@@ -501,8 +501,6 @@ function displayLoginForm($posted)
 
 <br><br>
 
-<p><hr noshade>
-
 <?php
         if ($ftpHost == "") {
 ?>
@@ -563,8 +561,6 @@ function displayLoginForm($posted)
 <?php
 }
 ?>
-
-<p><hr noshade>
 
 <?php
         echo displayLangSelect($_SESSION["lang"]);
