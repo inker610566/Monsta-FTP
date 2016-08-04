@@ -15,6 +15,7 @@ $lockOutTime = 5;
 $versionCheck = 1;
 $showAdvOption = 0;
 $showLockSess = 1;
+$showSaveLogin = 0;
 $showHostInfo = 1;
 $showAddons = 1;
 $showDotFiles = 1;
