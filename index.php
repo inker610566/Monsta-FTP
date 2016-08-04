@@ -1710,10 +1710,12 @@ function displayAjaxFooter()
 ?>:</span> <?php
     echo $_SESSION["ftp_user"];
 ?>
+<?php if($_SESSION['upload_limit'] !== '-1'){ ?>
         <span><?php
     echo $lang_info_upload_limit;
 ?>:</span> <?php
     echo formatFileSize($_SESSION["upload_limit"]);
+}
 ?>
         <!-- <span><?php
     echo $lang_info_drag_drop;
@@ -4234,27 +4236,31 @@ function setUploadLimit()
         //else
         $upload_limit = ini_get('memory_limit');
         
-        $ll = substr($upload_limit, strlen($upload_limit) - 1, 1);
         
-        if ($ll == "B") {
-            $upload_limit = str_replace("B", "", $upload_limit);
-            $upload_limit = $upload_limit * 1;
-        }
-        if ($ll == "K") {
-            $upload_limit = str_replace("K", "", $upload_limit);
-            $upload_limit = $upload_limit * 1024;
-        }
-        if ($ll == "M") {
-            $upload_limit = str_replace("M", "", $upload_limit);
-            $upload_limit = $upload_limit * 1024 * 1024;
-        }
-        if ($ll == "G") {
-            $upload_limit = str_replace("G", "", $upload_limit);
-            $upload_limit = $upload_limit * 1024 * 1024 * 1024;
-        }
-        if ($ll == "T") {
-            $upload_limit = str_replace("T", "", $upload_limit);
-            $upload_limit = $upload_limit * 1024 * 1024 * 1024 * 1024;
+        if($upload_limit !== '-1')
+        {
+            $ll = substr($upload_limit, strlen($upload_limit) - 1, 1);
+            
+            if ($ll == "B") {
+                $upload_limit = str_replace("B", "", $upload_limit);
+                $upload_limit = $upload_limit * 1;
+            }
+            if ($ll == "K") {
+                $upload_limit = str_replace("K", "", $upload_limit);
+                $upload_limit = $upload_limit * 1024;
+            }
+            if ($ll == "M") {
+                $upload_limit = str_replace("M", "", $upload_limit);
+                $upload_limit = $upload_limit * 1024 * 1024;
+            }
+            if ($ll == "G") {
+                $upload_limit = str_replace("G", "", $upload_limit);
+                $upload_limit = $upload_limit * 1024 * 1024 * 1024;
+            }
+            if ($ll == "T") {
+                $upload_limit = str_replace("T", "", $upload_limit);
+                $upload_limit = $upload_limit * 1024 * 1024 * 1024 * 1024;
+            }
         }
         
         $_SESSION["upload_limit"] = $upload_limit;

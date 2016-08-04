@@ -19,6 +19,6 @@ $showHostInfo = 1;
 $showAddons = 1;
 $showDotFiles = 1;
 $maxExecTime = 1800;
-$maxFileSize = "1024M";
+$maxFileSize = "-1";
 
 ?>
