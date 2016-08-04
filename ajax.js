@@ -306,7 +306,7 @@ function fileUploader(globalFiles, filePath, rowID, isFolder, isDrop) {
     rowID++; // Add 1 for table headers
 
     // Check the file size doesn't exceed allowed limit
-    if (file.size > upload_limit) {
+    if (upload_limit >= 0 && file.size > upload_limit) {
 
         // Change progress to error message
         document.getElementById('progressParent' + rowID).innerHTML = '<span class="sizeErrorSpan">' + lang_file_size_error + '</span>' // status
