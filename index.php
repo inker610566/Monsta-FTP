@@ -360,6 +360,7 @@ function displayLoginForm($posted)
     global $lang_session_expired;
     global $showAdvOption;
     global $showLockSess;
+    global $showSaveLogin;
     
     // Check for lockout
     $date_now = date("YmdHis");
@@ -500,8 +501,6 @@ function displayLoginForm($posted)
 
 <br><br>
 
-<p><hr noshade>
-
 <?php
         if ($ftpHost == "") {
 ?>
@@ -551,6 +550,7 @@ function displayLoginForm($posted)
 <input type="hidden" name="interface" value="">
 <?php
 }
+        if ($showSaveLogin == 1) {
 ?>
 <p><input type="checkbox" name="login_save" value="1" <?php
         if ($login_save == 1)
@@ -558,8 +558,9 @@ function displayLoginForm($posted)
 ?> tabindex="-1"> <?php
         echo $lang_save_login;
 ?>
-
-<p><hr noshade>
+<?php
+}
+?>
 
 <?php
         echo displayLangSelect($_SESSION["lang"]);
