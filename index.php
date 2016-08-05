@@ -8,6 +8,7 @@ ini_set('max_execution_time', $maxExecTime);
 ini_set('memory_limit', $maxFileSize);
 
 header("X-Frame-Options: SAMEORIGIN");
+header("Content-Type:text/html; charset=big5");
 
 error_reporting(0);
 saveFtpDetailsCookie();
