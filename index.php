@@ -4478,7 +4478,7 @@ function createTempFileName($file_name)
     if ($serverTmp == "")
         $serverTmp = ini_get('upload_tmp_dir') ? ini_get('upload_tmp_dir') : sys_get_temp_dir();
     
-    return tempnam($serverTmp, $file_name);
+    return tempnam($serverTmp, urlencode($file_name));
 }
 
 function checkFileInclude($file_check,$dir)
