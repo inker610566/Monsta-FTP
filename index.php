@@ -584,14 +584,14 @@ function checkLoginErrors()
     
     // Check for blank fields
     if ($ftpHost == "") {
-        if ($_POST["ftp_host"] == "" || trim($_POST["ftp_user"]) == "" || trim($_POST["ftp_pass"]) == "" || trim($_POST["ftp_port"]) == "")
+        if ($_POST["ftp_host"] == "" || trim($_POST["ftp_user"]) == "" || trim($_POST["ftp_port"]) == "")
             return 1;
         else
             return 0;
     }
     
     if ($ftpHost != "") {
-        if (trim($_POST["ftp_user"]) == "" || trim($_POST["ftp_pass"]) == "")
+        if (trim($_POST["ftp_user"]) == "")
             return 1;
         else
             return 0;
@@ -606,7 +606,7 @@ function connectFTP($posted)
     global $lang_cant_connect;
     global $lang_cant_authenticate;
     
-    if ($_SESSION["ftp_host"] != "" && $_SESSION["ftp_port"] != "" && $_SESSION["ftp_user"] != "" && $_SESSION["ftp_pass"] != "") {
+    if ($_SESSION["ftp_host"] != "" && $_SESSION["ftp_port"] != "" && $_SESSION["ftp_user"] != "") {
         
         // Connect
         if ($_SESSION["ftp_ssl"] == 1)
