@@ -1935,9 +1935,10 @@ function downloadFiles()
     
                 // Remove the current folder path
                 $file_path = str_replace($_SESSION["dir_current"]."/","",$fp2);
+                $file_path_win = iconv('UTF-8', 'big5', $file_path);
             
                 // Add file to zip
-                $zip->addFile($fp1,$file_path);
+                $zip->addFile($fp1,$file_path_win);
             }
         }
         
