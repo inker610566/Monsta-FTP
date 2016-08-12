@@ -3093,7 +3093,7 @@ function downloadFile()
     if ($isError == 0) {
         
         header("Content-Type: application/octet-stream");
-        header("Content-Disposition: attachment; filename=\"" . quotesEscape($file_name, "d") . "\""); // quotes required for spacing in filename
+        header("Content-Disposition: attachment; filename=\"" . iconv('UTF-8', 'big5', quotesEscape($file_name, "d")) . "\""); // quotes required for spacing in filename
         header("Content-Length: " . filesize($fp1));
         
         flush();
