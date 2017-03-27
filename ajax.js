@@ -1175,7 +1175,7 @@ function displayUploadButtons() {
 
     // IE Upload File (for < IE9)
     if (globalBrowser == "ie9-") {
-        html += '<input type="file" name="uploadFile" id="uploadFile" multiple onChange="processFileUploads(event,0,0,\'\')"> ';
+        html += '<input type="file" name="uploadFile" accept="image/*,video/*,audio/*,.doc,.docx,.pdf" id="uploadFile" multiple onChange="processFileUploads(event,0,0,\'\')"> ';
         html += '<input type="button" value="' + lang_btn_upload_file + '" onClick="uploadFileCheck(event)" class="' + adjustButtonWidth(lang_btn_upload_file) + '">';
     }
 
@@ -1198,7 +1198,7 @@ function displayUploadButtons() {
         html += '<div class="floatLeft">';
         html += '<input type="button" value="' + lang_btn_upload_folder + '" onClick="dirChoose(event)" class="' + adjustButtonWidth(lang_btn_upload_folder) + '">';
         html += '<div class="uploadHiddenDiv">';
-        html += '<input type="file" name="uploadDir" id="uploadDir" onChange="processFileUploads(event,0,1,\'\')" webkitdirectory directory>';
+        html += '<input type="file" name="uploadDir" id="uploadDir" accept="image/*,video/*,audio/*,.doc,.docx,.pdf" onChange="processFileUploads(event,0,1,\'\')" webkitdirectory directory>';
         html += '</div>';
         html += '</div>';
     }
@@ -1206,7 +1206,7 @@ function displayUploadButtons() {
     // Non-IE9 Upload File Setter (hidden)
     if (globalBrowser != "ie9-") {
         html += '<div class="uploadHiddenDiv">';
-        html += '<input type="file" name="uploadFile" id="uploadFile" onChange="processFileUploads(event,0,0,\'\')"';
+        html += '<input type="file" name="uploadFile" id="uploadFile" accept="image/*,video/*,audio/*,.doc,.docx,.pdf" onChange="processFileUploads(event,0,0,\'\')"';
 
         // Check for Win/Safari combo, as multiple not supported
         if (globalOs == "win" && globalBrowser == "safari") {} else {
